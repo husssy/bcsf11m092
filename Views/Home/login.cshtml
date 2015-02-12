@@ -1,0 +1,68 @@
+﻿@model movie_project.Models.UserAccountMetaData
+
+<body>
+
+     <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                       
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>Login Info</h3>
+                        @using (Html.BeginForm()) {
+                            <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Name)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.Name )
+                                   
+                                </span>
+                            </div>
+                            <div>
+                               <span>
+                                    @Html.LabelFor(model => model.Password)</span>
+                                <span>
+                                    @Html.PasswordFor(model => model.Password )
+                                      
+                                </span>
+                            </div>
+
+                            <div>
+                                <span>
+                                    <input type="submit" value="Login" ></span>
+                                <span>@Html.ValidationMessage("error")</span>
+                                @Html.ValidationSummary()
+                            </div>
+                        }
+
+                        <a href="/Home/Register" >Register , if you dont have account</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+

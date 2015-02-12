@@ -1,0 +1,109 @@
+﻿@model movie_project.Models.MovieInfo
+
+@Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#button1').click(function () {
+
+                var movieName = $('#MovieName').val();
+
+                $('.content').children().remove();
+                $.getJSON("/home/SearchByAjax?MovieName=" + movieName, function (data) {
+          
+                    if (data) {
+
+                        //alert("" + data.Director);
+                       // alert("" + data.Name);
+                        alert("" + data.Name);
+                        
+                        $('#test').text(data.Name);
+                       // $("#Container").append('<div>' + data.Cast + '</div>');
+
+                        //$("#Container").append('<div class="contact-form"><h3>'+data.Name+'</h3><div><img src="'+data.Picture +'" alt=""/></div><div><span>'+data.Description+'</span></div><div><span>'+data.Cast+'</span></div><div><span>'+data.Director+'</span></div><div><span>'+data.Date_Of_Release+'</span></div></div>');
+                        //$("#Container").append('<span>'+ data.Name +'</span>');
+                        //$("#Container").append('<span>' + data.Cast + '</span>');
+                        //$("#Container").append('<span>' + data.Director + '</span>');
+                        //$("#Container").append('</div>');
+
+                        //$("#Container").append('');
+                            
+                  @*
+                        $("#Container").append('<span>' + x.Category + '</span>');
+
+                        $("#Container").append('</div></div></div>');
+
+                        $("#Container").append('<div class="label-text">');
+                        $("#Container").append('<h3><a href="single-post.html">' + x.Title + '</a></h3>');
+                        $("#Container").append('<span class="text-category">' + x.Price + '</span>');
+                        $("#Container").append('</div></div></div>');
+                  *@
+
+                            
+                    }
+                    else {
+                        alert("Failed");
+                        
+                    }
+                });
+        
+            });
+
+        });
+    </script>
+
+<body>
+
+    <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li style="color:red">@Session["username"]</li>
+                        <li>@Html.ActionLink("Logout","Logout","Home")</li>
+                       
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>User Page</h3>
+                    <Form >
+                           <div class="field">
+                                <input type="text" id="MovieName" name="t1" />
+                                <input type="submit" id="button1" value="search"/>
+                             
+                           </div>
+                      
+                        </Form>
+                    </div>
+                  
+                </div>
+            </div>
+            </div>
+  			</div>
+             
+</div>
+   <p id="test"></p>
+</body>
+

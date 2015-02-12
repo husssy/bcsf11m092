@@ -1,0 +1,100 @@
+﻿@model movie_project.Models.UserAccount
+ @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+            $('#button1').click(function () {
+
+                var userName = $('#UserName').val();
+                $.getJSON("/home/CheckUserName?UserName=" +userName, function (data) {
+
+                    if (data) {
+                        $('#result').text("User already exists in database").css('color','red');
+
+                    }
+                    else {
+                        $('#result').text("User Name is available").css('color','green');
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+<body>
+
+     <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                       
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>Login Info</h3>
+                        @using (Html.BeginForm()) {
+                           @* @Html.HiddenFor(model => model.Id)*@
+                            <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Name)</span>
+                                <span>
+                                     @Html.TextBoxFor(model => model.Name , new {id="UserName" ,required = "required" })</span>
+                            
+
+                                     <div id="result"></div><input type="button" id="button1" value="Check Availability" />
+                            </div>
+                            <div>
+                               <span>
+                                    @Html.LabelFor(model => model.Password)</span>
+                                <span>
+                                    @Html.PasswordFor(model => model.Password , new { required = "required" })</span>
+                            </div>
+                            
+                            <div>
+                               <span>
+                                    Confirm Password</span>
+                                <span>
+                                    <input type="password" name="pass" required="required"></span>
+                            </div>
+                            
+                            
+                            <div>
+                                <span>
+                                    <input type="submit" value="Creat Account"></span>
+                                <span>@Html.ValidationMessage("error")</span>
+                                @Html.ValidationSummary()
+                            </div>
+                             
+                        }
+
+                     
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+

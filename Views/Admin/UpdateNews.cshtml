@@ -1,0 +1,57 @@
+﻿@model movie_project.Models.AdminAccount
+<body>
+
+    <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                         <li style="color:red">@Session["username"]</li>
+                        <li>@Html.ActionLink("logout", "logout", "Admin")</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>Update Page</h3>
+                        <Form method="get" action="/Admin/UpdateNewsCommit">
+                           
+                            <div>
+                                <span>
+                                    Headline</span>
+                                <span>
+                                    <input type="text" name="t1" required="required"/></span>
+                            </div>
+                          
+
+                            <div>
+                                <span>
+                                    <input type="submit" value="Update"></span>
+                            </div>
+                        </Form>
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+

@@ -1,0 +1,76 @@
+﻿@model movie_project.Models.MovieNew
+<body>
+
+    <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li style="color:red">@Session["username"]</li>
+                        <li>@Html.ActionLink("logout", "logout", "Admin")</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>Update Page</h3>
+                          @using (Html.BeginForm("UpdateNewsCommit" , "Admin" , FormMethod.Post, new { enctype = "multipart/form-data" })) {
+                            @Html.HiddenFor(model => model.Id)
+                              @Html.HiddenFor(model => model.Pic)
+                            <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Headline)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.Headline , new { required = "required" })</span>
+                            </div>
+                            <div>
+                               <span>
+                                    @Html.LabelFor(model => model.News)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.News , new { required = "required" })</span>
+                            </div>
+                            
+                             <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Date)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.Date , new { required = "required" })</span>
+                            </div>
+                           <div>
+
+                                    Upload Image: <input type="file" name="image" id="test"/>
+ 
+                            </div>
+                            
+                            
+                             <div>
+                                <span>
+                                    <input type="submit" value="Update"></span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+

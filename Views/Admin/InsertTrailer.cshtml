@@ -1,0 +1,73 @@
+﻿@model movie_project.Models.Video
+
+@{
+    ViewBag.Title = "DeleteNews";
+}
+
+
+
+<body>
+
+    <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li style="color:red">@Session["username"]</li>
+                        <li>@Html.ActionLink("logout", "logout", "Admin")</li>
+                        
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h3>Insert Page </h3>
+                        @using (Html.BeginForm()) {
+                            @Html.HiddenFor(model => model.Id)
+                            
+
+                            <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Title)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.Title , new { required = "required" })</span>
+                            </div>
+                            
+                            <div>
+                                <span>
+                                    @Html.LabelFor(model => model.Link)</span>
+                                <span>
+                                    @Html.TextBoxFor(model => model.Link , new { required = "required" })</span>
+                            </div>
+                         
+                            <div>
+                                <span>
+                                    <input type="submit" value="Insert"></span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+

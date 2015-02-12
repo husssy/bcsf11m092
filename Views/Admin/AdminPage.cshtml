@@ -1,0 +1,52 @@
+﻿
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="h-logo">
+                <a href="~/Views/Home/Index.cshtml">
+                    <img src="~/images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                        
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li style="color:red">@Session["username"]</li>
+                        <li>@Html.ActionLink("logout", "logout", "Admin")</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="content">
+	<div class="wrap">
+		<div class="content-top">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <h1>Admin Panel</h1>
+                    <div class="content-left">
+                        <div class="listimg listimg_1_of_2">
+                            <a href="/Admin/Insert" class="color"><strong>Insert A Movie</strong></a><br />
+                            <a href="/Admin/Delete" class="color"><strong>Delete A Movie</strong></a><br />
+                            <a href="/Admin/Update" class="color"><strong>Update A Movie</strong></a><br/>
+                            <a href="/Admin/InsertNews" class="color"><strong>Insert A News</strong></a><br/>
+                            <a href="/Admin/DeleteNews" class="color"><strong>Delete A News</strong></a><br/>
+                            <a href="/Admin/UpdateNews" class="color"><strong>Update A News</strong></a><br/>
+                         <a href="/Admin/InsertTrailer" class="color"><strong>Insert A Trailer</strong></a><br/>
+                            <a href="/Admin/DeleteTrailer" class="color"><strong>Delete A Trailer</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+  			</div>
+</div>
+</body>
+
