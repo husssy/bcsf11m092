@@ -33,24 +33,28 @@
 				  
                       <h3>@Model.Name</h3>
 					    
-					    	<div>
+					    	@*<div>
 						    
 						    	<img src="@Url.Content(@Model.Picture )" alt=""/>
-						    </div>
-	 					    <div>
-						    	
-						    	<span>@Model.Description</span></div>
-						    <div>
+						    </div>*@
+	 					    
+                             <div>
 						     	
-						    	<span>@Model.Cast</span>
+						    	Cast :<span>@Model.Cast</span>
 						    </div>
 						    <div>
 						    	
-						    	<span>@Model.Director</span>
+						    	Director :<span>@Model.Director</span>
 						    </div>
+
+
                             <div>
 						    	
-						    	<span>@Model.Date_Of_Release</span>
+						    	Description :<span>@Model.Description</span></div>
+						    
+                            <div>
+						    	
+						    	Date of Release :<span>@Model.Date_Of_Release</span>
 						    </div>
 						   
 					    
